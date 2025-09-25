@@ -38,7 +38,14 @@ def main():
         updatable.update(dt)
         for a in asteroids:
             if a.do_colide(player):
-                print("Game over!")
+               return
+            for b in shots:
+                if a.do_colide(b):
+                    a.split()
+                    b.kill()
+                 
+
+                   
         for d in drawable:
             d.draw(screen)
         #player.update(dt)
